@@ -1,0 +1,177 @@
+.tech {
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+.tech::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--grad-hero);
+  pointer-events: none;
+}
+
+.tech__container {
+  max-width: var(--container);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.tech__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.tech__title {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+.tech__title-accent {
+  background: var(--grad-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.tech__subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* ─── Tabs ───────────────────────────────────────────────────────────────── */
+.tech__tabs {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.tech__tab {
+  padding: 8px 20px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font-sans);
+}
+.tech__tab:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-secondary);
+  background: var(--accent-glow-sm);
+}
+.tech__tab--active {
+  background: var(--grad-primary);
+  border-color: transparent;
+  color: #fff !important;
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* ─── Grid ───────────────────────────────────────────────────────────────── */
+.tech__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+/* ─── Card ───────────────────────────────────────────────────────────────── */
+.tech__card {
+  position: relative;
+  padding: 24px 18px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: var(--transition);
+  overflow: hidden;
+  cursor: default;
+  animation: card-in 0.4s ease forwards;
+}
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.tech__card:hover {
+  border-color: var(--tech-color, var(--accent-primary));
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 0 1px var(--tech-color, var(--accent-primary));
+  background: var(--bg-card-hover);
+}
+
+.tech__card-glow {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--tech-color, var(--accent-primary)) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.tech__card:hover .tech__card-glow { opacity: 0.15; }
+
+.tech__card-icon {
+  display: flex;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  transition: filter 0.3s ease;
+}
+.tech__card:hover .tech__card-icon {
+  filter: drop-shadow(0 0 8px var(--tech-color, var(--accent-primary)));
+}
+.tech__card-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.tech__card-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* ─── Bar ────────────────────────────────────────────────────────────────── */
+.tech__card-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+.tech__card-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.tech__card-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--tech-color, var(--accent-primary));
+  box-shadow: 0 0 8px var(--tech-color, var(--accent-primary));
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.tech__card-level {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  min-width: 32px;
+  text-align: right;
+}
+
+@media (max-width: 480px) {
+  .tech__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
