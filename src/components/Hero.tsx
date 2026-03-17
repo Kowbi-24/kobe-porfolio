@@ -3,8 +3,8 @@ import './Hero.css'
 import avatarImg from '../assets/avatar.png'
 
 const SOCIAL_LINKS = {
-  github: 'https://github.com',
-  linkedin: 'https://linkedin.com',
+  github: 'https://github.com/Kowbi-24',
+  linkedin: 'https://www.linkedin.com/in/kobe-lester-cruz/',
 }
 
 export default function Hero() {

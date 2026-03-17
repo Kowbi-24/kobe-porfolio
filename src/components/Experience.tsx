@@ -28,7 +28,6 @@ const JOBS: Job[] = [
     description:
       'Designing and developing custom web applications for clients across various industries. Built HR portals, survey systems, and e-commerce dashboards using React, PHP, and MySQL. Managed entire development lifecycle from requirements to deployment.',
     tech: ['React', 'TypeScript', 'PHP', 'MS SQL', 'HTML', 'CSS', 'Tailwind'],
-    current: true,
   },
   
 ]
